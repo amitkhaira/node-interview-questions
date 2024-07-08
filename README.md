@@ -786,6 +786,555 @@ console.log(bufSlice.toString());  // Output: Hel
 4. **Pipelines**: Streams can be easily combined using `pipe()` to create powerful, efficient operations called pipelines. For instance, to compress a file and then write it to disk, you can pipe a readable stream to a transform stream and then to a writable stream. This arrangement neatly dictates the flow of data.
 <br>
 
+## 16. How do you read and write files in Node.js?
+
+To read and write files in Node.js, you can use the built-in `fs` (File System) module. Here's an example:
+
+**Reading a file:**
+```javascript
+const fs = require('fs');
+
+fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+**Writing to a file:**
+```javascript
+const fs = require('fs');
+
+const content = 'This is some content to write into the file.';
+
+fs.writeFile('path/to/file.txt', content, err => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('File has been written');
+});
+```
+
+## 17. How do you use the EventEmitter in Node.js?
+
+The `EventEmitter` class is part of the `events` module in Node.js. It allows you to handle custom events. Here's an example:
+
+```javascript
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+myEmitter.on('event', () => {
+  console.log('An event occurred!');
+});
+
+myEmitter.emit('event');
+```
+
+## 18. What is the QueryString module?
+
+The `querystring` module provides utilities for parsing and formatting URL query strings. Here's an example:
+
+**Parsing a query string:**
+```javascript
+const querystring = require('querystring');
+
+const parsed = querystring.parse('foo=bar&abc=xyz&abc=123');
+console.log(parsed);
+```
+
+**Stringifying an object:**
+```javascript
+const querystring = require('querystring');
+
+const str = querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
+console.log(str);
+```
+
+## 19. How do you manage path operations in Node.js?
+
+Node.js provides the `path` module to work with file and directory paths. Here's an example:
+
+```javascript
+const path = require('path');
+
+// Join paths
+const joinedPath = path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+console.log(joinedPath);
+
+// Resolve a sequence of paths to an absolute path
+const absolutePath = path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile');
+console.log(absolutePath);
+```
+
+## 20. What are callbacks in Node.js?
+
+Callbacks are functions passed as arguments to other functions and are invoked after an operation is completed. Here's an example:
+
+```javascript
+function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data fetched');
+  }, 1000);
+}
+
+fetchData((message) => {
+  console.log(message);
+});
+```
+
+## 21. What is callback hell and how can it be avoided?
+
+Callback hell refers to the situation where callbacks are nested within other callbacks several levels deep, making the code hard to read and maintain. It can be avoided using Promises or async/await. 
+
+**Using Promises:**
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched');
+    }, 1000);
+  });
+}
+
+fetchData().then(message => {
+  console.log(message);
+});
+```
+
+**Using async/await:**
+```javascript
+async function fetchData() {
+  return 'Data fetched';
+}
+
+(async () => {
+  const message = await fetchData();
+  console.log(message);
+})();
+```
+
+## 22. Explain promises in Node.js.
+
+Promises are objects representing the eventual completion or failure of an asynchronous operation. Here's an example:
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Success!');
+  }, 1000);
+});
+
+myPromise.then(value => {
+  console.log(value);
+}).catch(err => {
+  console.error(err);
+});
+```
+
+## 23. How do async/await functions work in Node.js?
+
+`async` and `await` are syntactic sugar over Promises, making asynchronous code easier to write and read. Here's an example:
+
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched');
+    }, 1000);
+  });
+}
+
+async function getData() {
+  const data = await fetchData();
+  console.log(data);
+}
+
+getData();
+```
+
+## 24. What is the difference between synchronous and asynchronous methods in the fs module?
+
+Synchronous methods block the execution until the operation is completed, while asynchronous methods do not block the execution and use callbacks or promises to handle the result.
+
+**Synchronous:**
+```javascript
+const fs = require('fs');
+
+try {
+  const data = fs.readFileSync('path/to/file.txt', 'utf8');
+  console.log(data);
+} catch (err) {
+  console.error(err);
+}
+```
+
+**Asynchronous:**
+```javascript
+const fs = require('fs');
+
+fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## 25. How does Node.js handle HTTP requests and responses?
+
+Node.js has a built-in `http` module to handle HTTP requests and responses. Here's an example of creating a simple HTTP server:
+
+```javascript
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\n');
+});
+
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
+```
+
+## 26. What is Express.js and why is it important for Node.js?
+
+Express.js is a fast, unopinionated, minimalist web framework for Node.js. It provides a robust set of features for web and mobile applications. With Express, you can create web applications, RESTful APIs, and much more. It's important because it simplifies the process of handling HTTP requests and responses, middleware, and routing.
+
+## 27. How do you create a RESTful API with Node.js?
+
+To create a RESTful API with Node.js, you can use the Express.js framework. Here's a basic example:
+
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+app.get('/api/items', (req, res) => {
+  res.send('Get all items');
+});
+
+app.post('/api/items', (req, res) => {
+  res.send('Create a new item');
+});
+
+app.get('/api/items/:id', (req, res) => {
+  res.send(`Get item with ID ${req.params.id}`);
+});
+
+app.put('/api/items/:id', (req, res) => {
+  res.send(`Update item with ID ${req.params.id}`);
+});
+
+app.delete('/api/items/:id', (req, res) => {
+  res.send(`Delete item with ID ${req.params.id}`);
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+```
+
+## 28. What is middleware in the context of Node.js?
+
+Middleware in Node.js refers to functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. Middleware functions can perform various tasks like executing code, modifying the request and response objects, ending the request-response cycle, and calling the next middleware function.
+
+## 29. How do you ensure security in HTTP headers with Node.js?
+
+To ensure security in HTTP headers, you can use the `helmet` middleware in Express.js. It helps secure your Express apps by setting various HTTP headers.
+
+```javascript
+const express = require('express');
+const helmet = require('helmet');
+const app = express();
+
+app.use(helmet());
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+```
+
+## 30. How do you handle errors in Node.js?
+
+In Node.js, you can handle errors using try-catch blocks, error-first callbacks, and the `error` event on EventEmitters. Here's an example using a try-catch block with async/await:
+
+```javascript
+async function fetchData() {
+  try {
+    const data = await someAsyncFunction();
+    console.log(data);
+  } catch (err) {
+    console.error('Error occurred:', err);
+  }
+}
+
+fetchData();
+```
+
+## 31. Describe some error-first callback patterns in Node.js.
+
+Error-first callback patterns in Node.js involve passing an error object as the first argument to the callback function. If there is no error, the first argument is `null` or `undefined`.
+
+```javascript
+function fetchData(callback) {
+  setTimeout(() => {
+    const error = null;
+    const data = 'Data fetched';
+    callback(error, data);
+  }, 1000);
+}
+
+fetchData((err, data) => {
+  if (err) {
+    console.error('Error occurred:', err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## 32. What are some common debugging techniques for Node.js applications?
+
+Common debugging techniques for Node.js applications include using `console.log` statements, the Node.js `debugger` statement, and debugging tools like Chrome DevTools or Visual Studio Code. You can start a Node.js application with the `--inspect` flag to enable debugging.
+
+## 33. Explain process.nextTick().
+
+`process.nextTick()` defers the execution of a function until the next iteration of the event loop. It allows you to handle asynchronous tasks immediately after the current operation completes, before any I/O operations.
+
+```javascript
+console.log('Start');
+
+process.nextTick(() => {
+  console.log('Next Tick');
+});
+
+console.log('End');
+```
+
+## 34. What is the global object in Node.js?
+
+The global object in Node.js is `global`. It provides access to global variables like `process`, `console`, and `Buffer`, as well as global functions like `setTimeout`, `setInterval`, and `require`.
+
+## 35. What frameworks are available for testing Node.js applications?
+
+Popular frameworks for testing Node.js applications include:
+
+- Mocha
+- Jest
+- Jasmine
+- AVA
+- Tape
+
+## 36. Explain the concept of mocking in Node.js.
+
+Mocking in Node.js involves creating simulated versions of functions, modules, or objects to test code in isolation. Mocking is commonly used in unit testing to simulate external dependencies and control their behavior.
+
+## 37. Why is benchmarking important in Node.js?
+
+Benchmarking is important in Node.js to measure the performance of your application, identify bottlenecks, and optimize code. It helps ensure your application runs efficiently under different load conditions.
+
+## 38. How do you test an HTTP server in Node.js?
+
+You can test an HTTP server in Node.js using testing frameworks like Mocha and libraries like Supertest.
+
+```javascript
+const request = require('supertest');
+const express = require('express');
+
+const app = express();
+
+app.get('/user', (req, res) => {
+  res.status(200).json({ name: 'John' });
+});
+
+describe('GET /user', () => {
+  it('responds with json', done => {
+    request(app)
+      .get('/user')
+      .expect('Content-Type', /json/)
+      .expect(200, {
+        name: 'John'
+      }, done);
+  });
+});
+```
+
+## 39. How do you connect a MySQL database with Node.js?
+
+To connect a MySQL database with Node.js, you can use the `mysql` or `mysql2` library.
+
+```javascript
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'my_database'
+});
+
+connection.connect(err => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL');
+});
+
+connection.query('SELECT * FROM users', (err, results) => {
+  if (err) {
+    console.error('Error executing query:', err);
+    return;
+  }
+  console.log('Results:', results);
+});
+
+connection.end();
+```
+
+## 40. Explain how NoSQL databases like MongoDB can be used with Node.js.
+
+NoSQL databases like MongoDB can be used with Node.js by using libraries like `mongoose` or the native `mongodb` driver. These libraries provide methods to interact with MongoDB databases and perform CRUD operations.
+
+```javascript
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/my_database', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number
+});
+
+const User = mongoose.model('User', userSchema);
+
+const newUser = new User({ name: 'John', email: 'john@example.com', age: 30 });
+
+newUser.save()
+  .then(user => {
+    console.log('User saved:', user);
+  })
+  .catch(err => {
+    console.error('Error saving user:', err);
+  });
+```
+
+## 41. What’s the role of ORM in Node.js?
+
+ORM (Object-Relational Mapping) in Node.js allows developers to interact with databases using object-oriented syntax instead of writing raw SQL queries. ORM libraries like `Sequelize` and `TypeORM` help map database tables to JavaScript objects and provide methods to perform CRUD operations.
+
+## 42. How can you monitor the performance of a Node.js app?
+
+You can monitor the performance of a Node.js app using tools like:
+
+- New Relic
+- AppDynamics
+- PM2
+- Node.js built-in `performance` module
+- Monitoring services like Datadog and Grafana
+
+## 43. What is clustering in Node.js and how does it work?
+
+Clustering in Node.js allows you to create multiple instances of your application that share the same server port. This helps take advantage of multi-core systems and improves the performance and reliability of your application. The `cluster` module is used to create child processes that can share the same server.
+
+```javascript
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`Worker ${worker.process.pid} died`);
+  });
+} else {
+  http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('Hello, World!\n');
+  }).listen(8000);
+
+  console.log(`Worker ${process.pid} started`);
+}
+```
+
+## 44. How can you prevent memory leaks in a Node.js application?
+
+To prevent memory leaks in a Node.js application:
+
+- Avoid global variables
+- Use weak references
+- Use memory profiling tools
+- Monitor memory usage
+- Avoid long-lived timers or intervals
+- Manage asynchronous operations carefully
+
+## 45. Explain the use of the `--inspect` flag in Node.js.
+
+The `--inspect` flag in Node.js enables the V8 inspector, allowing you to debug your application using Chrome DevTools or other compatible debugging tools.
+
+```javascript
+node --inspect index.js
+```
+
+## 46. How does Node.js handle concurrency?
+
+Node.js handles concurrency using an event-driven, non-blocking I/O model. It uses a single-threaded event loop to manage multiple connections simultaneously. Asynchronous operations are delegated to worker threads or the underlying system, and their callbacks are handled by the event loop when they complete.
+
+## 47. What is the difference between process and child_process modules?
+
+The `process` module provides information and control over the current Node.js process, while the `child_process` module allows you to spawn new processes and communicate with them via standard input/output streams.
+
+## 48. How do worker threads work in Node.js?
+
+Worker threads in Node.js allow you to run JavaScript code in parallel threads, enabling better performance for CPU-intensive operations. The `worker_threads` module provides an interface to create and manage worker threads.
+
+```javascript
+const { Worker, isMainThread, parentPort } = require('worker_threads');
+
+if (isMainThread) {
+  const worker = new Worker(__filename);
+  worker.on('message', message => {
+    console.log('Message from worker:', message);
+  });
+  worker.postMessage('Hello, Worker!');
+} else {
+  parentPort.on('message', message => {
+    console.log('Message from main thread:', message);
+    parentPort.postMessage('Hello, Main Thread!');
+  });
+}
+```
+
+## 49. How is Node.js used in microservices architecture?
+
+Node.js is used in microservices architecture to build lightweight, scalable, and high-performance services. Each service can be developed, deployed, and scaled independently. Node.js’s non-blocking I/O and event-driven architecture make it suitable for handling multiple microservices efficiently.
+
+## 50. Explain inter-process communication in a Node.js microservice architecture.
+
+Inter-process communication (IPC) in a Node.js microservice architecture involves communication between different microservices. This can be achieved using various methods like HTTP/HTTPS requests, message queues (e.g., RabbitMQ, Kafka), or WebSockets. IPC enables services to exchange data and coordinate actions, ensuring the system works cohesively.
+
 
 
 #### Explore all 100 answers here 👉 [Devinterview.io - Node.js](https://devinterview.io/questions/web-and-mobile-development/node-interview-questions)
