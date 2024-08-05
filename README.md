@@ -14,7 +14,7 @@
 | ID  | Question                                                                                              |
 |-----|-------------------------------------------------------------------------------------------------------|
 | 1   | [What is Node.js and why is it used?](#what-is-nodejs-and-why-is-it-used)                            |
-| 2   | [How does Node.js handle child threads?](#how-does-nodejs-handle-child-threads)                       |
+| 2   | [How does Node.js handle child threads?](#2-how-does-nodejs-handle-child-threads)                       |
 | 3   | [Describe the event-driven programming in Node.js.](#describe-the-event-driven-programming-in-nodejs)  |
 | 4   | [What is the event loop in Node.js?](#what-is-the-event-loop-in-nodejs)                               |
 | 5   | [What is the difference between Node.js and traditional web server technologies?](#what-is-the-difference-between-nodejs-and-traditional-web-server-technologies) |
