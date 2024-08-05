@@ -11,6 +11,110 @@
 
 <br>
 
+| ID  | Question                                                                                              |
+|-----|-------------------------------------------------------------------------------------------------------|
+| 1   | [What is Node.js and why is it used?](#what-is-nodejs-and-why-is-it-used)                            |
+| 2   | [How does Node.js handle child threads?](#how-does-nodejs-handle-child-threads)                       |
+| 3   | [Describe the event-driven programming in Node.js.](#describe-the-event-driven-programming-in-nodejs)  |
+| 4   | [What is the event loop in Node.js?](#what-is-the-event-loop-in-nodejs)                               |
+| 5   | [What is the difference between Node.js and traditional web server technologies?](#what-is-the-difference-between-nodejs-and-traditional-web-server-technologies) |
+| 6   | [Explain what “non-blocking” means in Node.js.](#explain-what-non-blocking-means-in-nodejs)           |
+| 7   | [How do you update Node.js to the latest version?](#how-do-you-update-nodejs-to-the-latest-version)  |
+| 8   | [What is “npm” and what is it used for?](#what-is-npm-and-what-is-it-used-for)                        |
+| 9   | [How do you manage packages in a Node.js project?](#how-do-you-manage-packages-in-a-nodejs-project)  |
+| 10  | [What is a package.json file?](#what-is-a-packagejson-file)                                           |
+| 11  | [Describe some of the core modules of Node.js.](#describe-some-of-the-core-modules-of-nodejs)        |
+| 12  | [How do you create a simple server in Node.js using the HTTP module?](#how-do-you-create-a-simple-server-in-nodejs-using-the-http-module) |
+| 13  | [Explain the purpose of the File System (fs) module.](#explain-the-purpose-of-the-file-system-fs-module) |
+| 14  | [What is the Buffer class in Node.js?](#what-is-the-buffer-class-in-nodejs)                          |
+| 15  | [What are streams in Node.js and what types are available?](#what-are-streams-in-nodejs-and-what-types-are-available) |
+| 16  | [How do you read and write files in Node.js?](#how-do-you-read-and-write-files-in-nodejs)            |
+| 17  | [How do you use the EventEmitter in Node.js?](#how-do-you-use-the-eventemitter-in-nodejs)             |
+| 18  | [What is the QueryString module?](#what-is-the-querystring-module)                                  |
+| 19  | [How do you manage path operations in Node.js?](#how-do-you-manage-path-operations-in-nodejs)        |
+| 20  | [What are callbacks in Node.js?](#what-are-callbacks-in-nodejs)                                      |
+| 21  | [What is callback hell and how can it be avoided?](#what-is-callback-hell-and-how-can-it-be-avoided) |
+| 22  | [Explain promises in Node.js.](#explain-promises-in-nodejs)                                          |
+| 23  | [How do async/await functions work in Node.js?](#how-do-asyncawait-functions-work-in-nodejs)          |
+| 24  | [What is the difference between synchronous and asynchronous methods in the fs module?](#what-is-the-difference-between-synchronous-and-asynchronous-methods-in-the-fs-module) |
+| 25  | [How does Node.js handle HTTP requests and responses?](#how-does-nodejs-handle-http-requests-and-responses) |
+| 26  | [What is Express.js and why is it important for Node.js?](#what-is-expressjs-and-why-is-it-important-for-nodejs) |
+| 27  | [How do you create a RESTful API with Node.js?](#how-do-you-create-a-restful-api-with-nodejs)        |
+| 28  | [What is middleware in the context of Node.js?](#what-is-middleware-in-the-context-of-nodejs)        |
+| 29  | [How do you ensure security in HTTP headers with Node.js?](#how-do-you-ensure-security-in-http-headers-with-nodejs) |
+| 30  | [How do you handle errors in Node.js?](#how-do-you-handle-errors-in-nodejs)                          |
+| 31  | [Describe some error first callback patterns in Node.js.](#describe-some-error-first-callback-patterns-in-nodejs) |
+| 32  | [What are some common debugging techniques for Node.js applications?](#what-are-some-common-debugging-techniques-for-nodejs-applications) |
+| 33  | [Explain process.nextTick().](#explain-processnexttick)                                             |
+| 34  | [What is the global object in Node.js?](#what-is-the-global-object-in-nodejs)                        |
+| 35  | [What frameworks are available for testing Node.js applications?](#what-frameworks-are-available-for-testing-nodejs-applications) |
+| 36  | [Explain the concept of mocking in Node.js.](#explain-the-concept-of-mocking-in-nodejs)              |
+| 37  | [Why is benchmarking important in Node.js?](#why-is-benchmarking-important-in-nodejs)                |
+| 38  | [How do you test an HTTP server in Node.js?](#how-do-you-test-an-http-server-in-nodejs)              |
+| 39  | [How do you connect a MySQL database with Node.js?](#how-do-you-connect-a-mysql-database-with-nodejs) |
+| 40  | [Explain how NoSQL databases like MongoDB can be used with Node.js.](#explain-how-nosql-databases-like-mongodb-can-be-used-with-nodejs) |
+| 41  | [What’s the role of ORM in Node.js?](#whats-the-role-of-orm-in-nodejs)                             |
+| 42  | [How can you monitor the performance of a Node.js app?](#how-can-you-monitor-the-performance-of-a-nodejs-app) |
+| 43  | [What is clustering in Node.js and how does it work?](#what-is-clustering-in-nodejs-and-how-does-it-work) |
+| 44  | [How can you prevent memory leaks in a Node.js application?](#how-can-you-prevent-memory-leaks-in-a-nodejs-application) |
+| 45  | [Explain the use of the `--inspect` flag in Node.js.](#explain-the-use-of-the--inspect-flag-in-nodejs) |
+| 46  | [How does Node.js handle concurrency?](#how-does-nodejs-handle-concurrency)                         |
+| 47  | [What is the difference between process and child_process modules?](#what-is-the-difference-between-process-and-childprocess-modules) |
+| 48  | [How do worker threads work in Node.js?](#how-do-worker-threads-work-in-nodejs)                      |
+| 49  | [How is Node.js used in microservices architecture?](#how-is-nodejs-used-in-microservices-architecture) |
+| 50  | [Explain inter-process communication in a Node.js microservice architecture.](#explain-inter-process-communication-in-a-nodejs-microservice-architecture) |
+| 51  | [What are some common security best practices for Node.js applications?](#what-are-some-common-security-best-practices-for-nodejs-applications) |
+| 52  | [How would you protect your Node.js application from XSS attacks?](#how-would-you-protect-your-nodejs-application-from-xss-attacks) |
+| 53  | [What are environment variables and how could you use them in Node.js?](#what-are-environment-variables-and-how-could-you-use-them-in-nodejs) |
+| 54  | [What are WebSockets and how do they work with Node.js?](#what-are-websockets-and-how-do-they-work-with-nodejs) |
+| 55  | [How do you set up a WebSocket server in Node.js?](#how-do-you-set-up-a-websocket-server-in-nodejs) |
+| 56  | [How do you deploy a Node.js application in production?](#how-do-you-deploy-a-nodejs-application-in-production) |
+| 57  | [What is PM2 and how is it used in Node.js?](#what-is-pm2-and-how-is-it-used-in-nodejs)              |
+| 58  | [Explain how you would use Docker with a Node.js application.](#explain-how-you-would-use-docker-with-a-nodejs-application) |
+| 59  | [How do you manage versioning of a Node.js API?](#how-do-you-manage-versioning-of-a-nodejs-api)       |
+| 60  | [What are semantic versioning (semver) and its importance in Node.js development?](#what-are-semantic-versioning-semver-and-its-importance-in-nodejs-development) |
+| 61  | [What is the difference between exports and module.exports in Node.js?](#what-is-the-difference-between-exports-and-moduleexports-in-nodejs) |
+| 62  | [How can you create a simple TCP server in Node.js?](#how-can-you-create-a-simple-tcp-server-in-nodejs) |
+| 63  | [What is REPL in Node.js?](#what-is-repl-in-nodejs)                                                 |
+| 64  | [Explain the role of a reverse proxy with Node.js applications.](#explain-the-role-of-a-reverse-proxy-with-nodejs-applications) |
+| 65  | [How do Node.js streams enhance performance?](#how-do-nodejs-streams-enhance-performance)            |
+| 66  | [Describe some popular frameworks and libraries in the Node.js ecosystem.](#describe-some-popular-frameworks-and-libraries-in-the-nodejs-ecosystem) |
+| 67  | [How is Koa different from Express.js?](#how-is-koa-different-from-expressjs)                        |
+| 68  | [What is NestJS and when would you choose it for your Node.js project?](#what-is-nestjs-and-when-would-you-choose-it-for-your-nodejs-project) |
+| 69  | [What are the benefits of using TypeScript with Node.js?](#what-are-the-benefits-of-using-typescript-with-nodejs) |
+| 70  | [How would you integrate a Node.js app with a third-party API?](#how-would-you-integrate-a-nodejs-app-with-a-thirdparty-api) |
+| 71  | [What is Socket.IO and how does it work with Node.js?](#what-is-socketio-and-how-does-it-work-with-nodejs) |
+| 72  | [Explain how GraphQL can be used with Node.js.](#explain-how-graphql-can-be-used-with-nodejs)        |
+| 73  | [How does Node.js interact with frontend frameworks like Angular or React?](#how-does-nodejs-interact-with-frontend-frameworks-like-angular-or-react) |
+| 74  | [What is server-side rendering and how can it be achieved with Node.js?](#what-is-server-side-rendering-and-how-can-it-be-achieved-with-nodejs) |
+| 75  | [What are some coding conventions and best practices in Node.js?](#what-are-some-coding-conventions-and-best-practices-in-nodejs) |
+| 76  | [How do you ensure your Node.js application adheres to the twelve-factor app principles?](#how-do-you-ensure-your-nodejs-application-adheres-to-the-twelvefactor-app-principles) |
+| 77  | [What is code linting and how is it applied in Node.js?](#what-is-code-linting-and-how-is-it-applied-in-nodejs) |
+| 78  | [What are some strategies for scaling Node.js applications?](#what-are-some-strategies-for-scaling-nodejs-applications) |
+| 79  | [How do you handle session management in a scaled Node.js application?](#how-do-you-handle-session-management-in-a-scaled-nodejs-application) |
+| 80  | [How does the use of microservices affect the scalability of a Node.js application?](#how-does-the-use-of-microservices-affect-the-scalability-of-a-nodejs-application) |
+| 81  | [What are message queues and how are they used in Node.js?](#what-are-message-queues-and-how-are-they-used-in-nodejs) |
+| 82  | [How do you implement RabbitMQ with Node.js?](#how-do-you-implement-rabbitmq-with-nodejs)              |
+| 83  | [What is the significance of ZeroMQ in Node.js applications?](#what-is-the-significance-of-zeromq-in-nodejs-applications) |
+| 84  | [How do cloud platforms like AWS, Azure, or GCP facilitate Node.js application deployment?](#how-do-cloud-platforms-like-aws-azure-or-gcp-facilitate-nodejs-application-deployment) |
+| 85  | [What is serverless architecture, and how does it relate to Node.js?](#what-is-serverless-architecture-and-how-does-it-relate-to-nodejs) |
+| 86  | [How can you manage multiple Node.js versions on the same machine?](#how-can-you-manage-multiple-nodejs-versions-on-the-same-machine) |
+| 87  | [What are .env files and how do they work in a Node.js application?](#what-are-env-files-and-how-do-they-work-in-a-nodejs-application) |
+| 88  | [Describe the usage of the config module in Node.js.](#describe-the-usage-of-the-config-module-in-nodejs) |
+| 89  | [What is continuous integration/deployment and how is it implemented for Node.js apps?](#what-is-continuous-integrationdeployment-and-how-is-it-implemented-for-nodejs-apps) |
+| 90  | [How do you set up a CI/CD pipeline for a Node.js project?](#how-do-you-set-up-a-cicd-pipeline-for-a-nodejs-project) |
+| 91  | [How would you troubleshoot a slow running Node.js application?](#how-would-you-troubleshoot-a-slow-running-nodejs-application) |
+| 92  | [Describe how to handle file uploads in a Node.js application.](#describe-how-to-handle-file-uploads-in-a-nodejs-application) |
+| 93  | [How would you handle heavy computation tasks in a Node.js application?](#how-would-you-handle-heavy-computation-tasks-in-a-nodejs-application) |
+| 94  | [What is the role of a Node.js application in DevOps?](#what-is-the-role-of-a-nodejs-application-in-devops) |
+| 95  | [Describe containerization and its benefits for Node.js applications.](#describe-containerization-and-its-benefits-for-nodejs-applications) |
+| 96  | [How is Node.js used in IoT (Internet of Things)?](#how-is-nodejs-used-in-iot-internet-of-things)    |
+| 97  | [What would you consider when developing a Node.js application for IoT devices?](#what-would-you-consider-when-developing-a-nodejs-application-for-iot-devices) |
+| 98  | [Can you use Node.js for machine learning? If so, how?](#can-you-use-nodejs-for-machine-learning-if-so-how) |
+| 99  | [What are some machine learning libraries or tools available for Node.js?](#what-are-some-machine-learning-libraries-or-tools-available-for-nodejs) |
+| 100 | [What are best practices for designing RESTful APIs in Node.js?](#what-are-best-practices-for-designing-restful-apis-in-nodejs) |
+
+
 ## 1. What is Node.js and why is it used?
 
 **Node.js** is an open-source, cross-platform JavaScript runtime environment that executes code outside of a web browser. It is built on V8, the same JavaScript engine within Chrome, and optimized for high performance. This environment, coupled with an event-driven, non-blocking I/O framework, is tailored for server-side web development and more.
