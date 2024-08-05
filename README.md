@@ -115,7 +115,7 @@
 | 100 | [What are best practices for designing RESTful APIs in Node.js?](#what-are-best-practices-for-designing-restful-apis-in-nodejs) |
 
 
-## 1. What is Node.js and why is it used?
+### 1. What is Node.js and why is it used?
 
 **Node.js** is an open-source, cross-platform JavaScript runtime environment that executes code outside of a web browser. It is built on V8, the same JavaScript engine within Chrome, and optimized for high performance. This environment, coupled with an event-driven, non-blocking I/O framework, is tailored for server-side web development and more.
 
